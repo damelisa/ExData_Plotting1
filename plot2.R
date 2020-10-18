@@ -15,10 +15,12 @@ data[,3:9] <- sapply(data[,3:9],as.numeric)
 Sys.setlocale("LC_TIME", "C")
 format(Sys.Date(), "%Y-%b-%d")
 
+# Write plot into png graphic device
+png(filename = "plot2.png", width = 480, height = 480, units = "px")
+
 # Plot graph
 with(data, plot(Global_active_power ~ timepoint, type = "l", ann = FALSE, lwd = 1))
 title(ylab = "Global Active Power (kilowatts)")
 
-# Write plot into png graphic device
-dev.copy(png, filename = "plot2.png", width = 480, height = 480, units = "px")
+# Close graphic device
 dev.off()
