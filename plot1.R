@@ -10,9 +10,11 @@ data$Date <- as.Date(data$Date, format = "%d/%m/%Y")
 data$Time <- chron(times. = data$Time)
 data[,3:9] <- sapply(data[,3:9],as.numeric)
 
+# Write plot into png graphic device
+png(filename = "plot1.png", width = 480, height = 480, units = "px")
+
 # Plot graph
 hist(data$Global_active_power, col="red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
 
-# Write plot into png graphic device
-dev.copy(png, filename = "plot1.png", width = 480, height = 480, units = "px")
+# Close graphic device
 dev.off()
